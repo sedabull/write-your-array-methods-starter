@@ -26,78 +26,163 @@ const isNumber = function (val) {
 
 // Array used as argument in tests
 let nums = [-3, -1, 0, 1, 2, 30, 45, 678];
+console.log("nums array: ", nums);
 
 // Tests
 console.groupCollapsed("newForEach");
-console.log("Your newForEach output:");
-newForEach(nums, echo);
-console.log("Should match built in forEach output:");
+console.log("Expected output:");
 nums.forEach(echo);
+console.log("Actual output for newForEach(nums, echo):");
+newForEach(nums, echo);
 console.groupEnd();
 
 console.group("newSome");
-testOutputs(newSome(nums, isNegative), nums.some(isNegative), 1);
+testOutputs(
+  newSome(nums, isNegative),
+  nums.some(isNegative),
+  "newSome(nums, isNegative)"
+);
 
-testOutputs(newSome(nums, isPositive), nums.some(isPositive), 2);
+testOutputs(
+  newSome(nums, isPositive),
+  nums.some(isPositive),
+  "newSome(nums, isPositive)"
+);
 
-testOutputs(newSome(nums, isAbove10), nums.some(isAbove10), 3);
+testOutputs(
+  newSome(nums, isAbove10),
+  nums.some(isAbove10),
+  "newSome(nums, isAbove10)"
+);
 
-testOutputs(newSome(nums, isAbove678), nums.some(isAbove678), 4);
+testOutputs(
+  newSome(nums, isAbove678),
+  nums.some(isAbove678),
+  "newSome(nums, isAbove678)"
+);
 console.groupEnd();
 
 console.group("newEvery");
-testOutputs(newEvery(nums, isNegative), nums.every(isNegative), 1);
+testOutputs(
+  newEvery(nums, isNegative),
+  nums.every(isNegative),
+  "newEvery(nums, isNegative)"
+);
 
-testOutputs(newEvery(nums, isPositive), nums.every(isPositive), 2);
+testOutputs(
+  newEvery(nums, isPositive),
+  nums.every(isPositive),
+  "newEvery(nums, isPositive)"
+);
 
-testOutputs(newEvery(nums, isAbove10), nums.every(isAbove10), 3);
+testOutputs(
+  newEvery(nums, isAbove10),
+  nums.every(isAbove10),
+  "newEvery(nums, isAbove10)"
+);
 
-testOutputs(newEvery(nums, isAbove678), nums.every(isAbove678), 4);
+testOutputs(
+  newEvery(nums, isAbove678),
+  nums.every(isAbove678),
+  "newEvery(nums, isAbove678)"
+);
 console.groupEnd();
 
 console.group("newFind");
-testOutputs(newFind(nums, isNegative), nums.find(isNegative), 1);
+testOutputs(
+  newFind(nums, isNegative),
+  nums.find(isNegative),
+  "newFind(nums, isNegative)"
+);
 
-testOutputs(newFind(nums, isPositive), nums.find(isPositive), 2);
+testOutputs(
+  newFind(nums, isPositive),
+  nums.find(isPositive),
+  "newFind(nums, isPositive)"
+);
 
-testOutputs(newFind(nums, isAbove10), nums.find(isAbove10), 3);
+testOutputs(
+  newFind(nums, isAbove10),
+  nums.find(isAbove10),
+  "newFind(nums, isAbove10)"
+);
 
-testOutputs(newFind(nums, isAbove678), nums.find(isAbove678), 4);
+testOutputs(
+  newFind(nums, isAbove678),
+  nums.find(isAbove678),
+  "newFind(nums, isAbove678)"
+);
 console.groupEnd();
 
 console.group("newFindIndex");
-testOutputs(newFindIndex(nums, isNegative), nums.findIndex(isNegative), 1);
+testOutputs(
+  newFindIndex(nums, isNegative),
+  nums.findIndex(isNegative),
+  "newFindIndex(nums, isNegative)"
+);
 
-testOutputs(newFindIndex(nums, isPositive), nums.findIndex(isPositive), 2);
+testOutputs(
+  newFindIndex(nums, isPositive),
+  nums.findIndex(isPositive),
+  "newFindIndex(nums, isPositive)"
+);
 
-testOutputs(newFindIndex(nums, isAbove10), nums.findIndex(isAbove10), 3);
+testOutputs(
+  newFindIndex(nums, isAbove10),
+  nums.findIndex(isAbove10),
+  "newFindIndex(nums, isAbove10)"
+);
 
-testOutputs(newFindIndex(nums, isAbove678), nums.findIndex(isAbove678), 4);
+testOutputs(
+  newFindIndex(nums, isAbove678),
+  nums.findIndex(isAbove678),
+  "newFindIndex(nums, isAbove678)"
+);
 console.groupEnd();
 
 console.group("newMap");
-testOutputs(newMap(nums, isNegative), nums.map(isNegative), 1);
+testOutputs(
+  newMap(nums, isNegative),
+  nums.map(isNegative),
+  "newMap(nums, isNegative)"
+);
 
-testOutputs(newMap(nums, addTwo), nums.map(addTwo), 2);
+testOutputs(newMap(nums, addTwo), nums.map(addTwo), "newMap(nums, addTwo)");
 console.groupEnd();
 
 console.group("newFilter");
-testOutputs(newFilter(nums, isNegative), nums.filter(isNegative), 1);
+testOutputs(
+  newFilter(nums, isNegative),
+  nums.filter(isNegative),
+  "newFilter(nums, isNegative)"
+);
 
-testOutputs(newFilter(nums, isPositive), nums.filter(isPositive), 2);
+testOutputs(
+  newFilter(nums, isPositive),
+  nums.filter(isPositive),
+  "newFilter(nums, isPositive)"
+);
 
-testOutputs(newFilter(nums, isAbove10), nums.filter(isAbove10), 3);
+testOutputs(
+  newFilter(nums, isAbove10),
+  nums.filter(isAbove10),
+  "newFilter(nums, isAbove10)"
+);
 
-testOutputs(newFilter(nums, isAbove678), nums.filter(isAbove678), 4);
+testOutputs(
+  newFilter(nums, isAbove678),
+  nums.filter(isAbove678),
+  "newFilter(nums, isAbove678)"
+);
 console.groupEnd();
 
 // Test helper function
-function testOutputs(actual, expected, testnum = "") {
+function testOutputs(actual, expected, test = "") {
   const condition = JSON.stringify(actual) === JSON.stringify(expected);
   if (condition) {
-    console.groupCollapsed(`%cTest ${testnum}: PASS`, "color:green");
+    console.groupCollapsed(`%cTest ${test}: PASS`, "color:green");
   } else {
-    console.groupCollapsed(`%cTest ${testnum}: FAIL`, "color: red");
+    console.groupCollapsed(`%cTest ${test}: FAIL`, "color: red");
   }
   console.log("Expected: ");
   console.log(expected);
