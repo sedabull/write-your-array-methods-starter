@@ -11,3 +11,28 @@ function newForEach(array, callback){
         callback(currentItem, index, array)
     }
 }
+
+// complete the functions below so that they mimic the built in methods
+function newSome() {
+
+}
+
+function newEvery() {
+
+}
+
+function newFind() {
+
+}
+
+function newFindIndex() {
+
+}
+
+function newMap() {
+
+}
+
+function newFilter() {
+
+}
