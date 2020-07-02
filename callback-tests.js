@@ -176,6 +176,144 @@ testOutputs(
 );
 console.groupEnd();
 
+console.group("newConcat");
+testOutputs(
+    newConcat(testNumsArray, testWordsArray),
+    testNumsArray.concat(testWordsArray),
+    "newConcat(testNumsArray, testWordsArray)"
+);
+console.groupEnd();
+
+console.group("newIncludes");
+testOutputs(
+    newIncludes(testNumsArray, 105),
+    testNumsArray.includes(105),
+    "newIncludes(testNumsArray, 105)"
+);
+
+testOutputs(
+    newIncludes(testNumsArray, 808),
+    testNumsArray.includes(808),
+    "newIncludes(testNumsArray, 8)"
+);
+
+testOutputs(
+    newIncludes(testWordsArray, "duck"),
+    testWordsArray.includes("duck"),
+    "newIncludes(testWordsArray, 'duck')"
+);
+
+testOutputs(
+    newIncludes(testWordsArray, "doctor"),
+    testWordsArray.includes("doctor"),
+    "newIncludes(testWordsArray, 'doctor')"
+);
+console.groupEnd();
+
+console.group("newIndexOf");
+testOutputs(
+    newIndexOf(testNumsArray, 2),
+    testNumsArray.indexOf(2),
+    "newIndexOf(testNumsArray, 2)"
+);
+
+testOutputs(
+    newIndexOf(testNumsArray, 42),
+    testNumsArray.indexOf(42),
+    "newIndexOf(testNumsArray, 42)"
+);
+
+testOutputs(
+    newIndexOf(testWordsArray, "rainbow"),
+    testWordsArray.indexOf("rainbow"),
+    "newIndexOf(testWordsArray, 'rainbow')"
+);
+
+testOutputs(
+    newIndexOf(testWordsArray, "keyboard"),
+    testWordsArray.indexOf("keyboard"),
+    "newIndexOf(testWordsArray, 'keyboard')"
+);
+console.groupEnd();
+
+console.group('newJoin');
+testOutputs(
+    newJoin([]),
+    [].join(),
+    "newJoin([])"
+);
+
+testOutputs(
+    newJoin(testWordsArray),
+    testWordsArray.join(),
+    "newJoin(testWordsArray)"
+);
+
+testOutputs(
+    newJoin(testWordsArray, '-'),
+    testWordsArray.join('-'),
+    "newJoin(testWordsArray, '-')"
+);
+console.groupEnd();
+
+console.group("newSlice");
+testOutputs(
+    newSlice(testNumsArray),
+    testNumsArray.slice(),
+    "newSlice(testNumsArray)"
+);
+
+testOutputs(
+    newSlice(testNumsArray, 4),
+    testNumsArray.slice(4),
+    "newSlice(testNumsArray, 4)"
+);
+
+testOutputs(
+    newSlice(testNumsArray, 4, 7),
+    testNumsArray.slice(4, 7),
+    "newSlice(testNumsArray, 4, 7)"
+);
+
+testOutputs(
+    newSlice(testNumsArray, -7, 7),
+    testNumsArray.slice(-7, 7),
+    "newSlice(testNumsArray, -7, 7)"
+);
+
+testOutputs(
+    newSlice(testNumsArray, 1, -1),
+    testNumsArray.slice(1, -1),
+    "newSlice(testNumsArray, 1, -1)"
+);
+
+testOutputs(
+    newSlice(testNumsArray, -5, -3),
+    testNumsArray.slice(-5, -3),
+    "newSlice(testNumsArray, -5, -3)"
+);
+console.groupEnd();
+
+console.group("newFlat");
+testOutputs(
+    newFlat(testNestedArray),
+    testNestedArray.flat(),
+    "newFlat(testNestedArray)"
+);
+
+testOutputs(
+    newFlat(testNestedArray, 2),
+    testNestedArray.flat(2),
+    "newFlat(testNestedArray, 2)"
+);
+
+testOutputs(
+    newFlat(testNestedArray, Infinity),
+    testNestedArray.flat(Infinity),
+    "newFlat(testNestedArray, Infinity)"
+);
+console.groupEnd();
+
 // Test helper function
 function testOutputs(actual, expected, test = "") {
   const condition = JSON.stringify(actual) === JSON.stringify(expected);
